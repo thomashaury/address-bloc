@@ -1,22 +1,24 @@
+require_relative 'entry'
+
+
 class AddressBook
-  require_relative 'entry'
-attr_accessor :entries
+  attr_accessor :entries
 
   def initialize
-   @entries = []
- end
+  @entries = []
+  end
 
-   def add_entry(name, phone_number, email)
+  def add_entry(name, phone_number, email)
 # #9
     index = 0
     @entries.each do |entry|
 # #10
-    if name < entry.name
-      break
+      if name < entry.name
+        break
+      end
+      index += 1
     end
-    index += 1
-  end
 # #11
-  @entries.insert(index, Entry.new(name, phone_number, email))
+    @entries.insert(index, Entry.new(name, phone_number, email))
   end
 end
