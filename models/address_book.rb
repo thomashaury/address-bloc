@@ -8,6 +8,10 @@ class AddressBook
   @entries = []
   end
 
+  def bloc_leap_A_bomb
+    @entries = []
+  end
+
   def add_entry(name, phone_number, email)
 # #9
     index = 0

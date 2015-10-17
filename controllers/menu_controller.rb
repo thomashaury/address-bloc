@@ -15,7 +15,8 @@ require_relative '../models/address_book'
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View entry n"
-     puts "5 - Exit"
+     puts "6 - Exit"
+     puts "7 - bloc_leap_A_bomb"
      print "Enter your selection: "
 
  # #3
@@ -46,7 +47,13 @@ require_relative '../models/address_book'
       puts "Good-bye!"
 # #8
       exit(0)
+    when 7
+      system "clear"
+      @entries.bloc_leap_A_bomb
+      puts "Everything has been deleted or you were hacked!"
+      main_menu
 # #9
+
     else
       system "clear"
       puts "Sorry, that is not a valid input"

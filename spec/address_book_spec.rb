@@ -11,6 +11,14 @@ RSpec.describe AddressBook do
    expect(entry.email).to eql expected_email
  end
 
+  describe "#bloc_leap_A_bomb"
+  it "should delete every last entry and everything in its path"
+  book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+  
+  book.nuke
+    expect(book.entries.size).to eql 0
+  end
+
   describe "attributes" do
     it "should respond to entries" do
       expect(book).to respond_to(:entries)
