@@ -41,7 +41,7 @@ require_relative '../models/address_book'
       main_menu
     when 5
       system "clear"
-      entry_b_submenu
+      entry_n_submenu
       main_menu
     when 6
       puts "Good-bye!"
@@ -49,8 +49,8 @@ require_relative '../models/address_book'
       exit(0)
     when 7
       system "clear"
-      @entries.bloc_leap_A_bomb
-      puts "Everything has been deleted or you were hacked!"
+      @address_book.bloc_leap_A_bomb
+      puts "Everything has been deleted or you were hacked especially if you're name is ben then you were definitely hacked!"
       main_menu
 # #9
 
@@ -59,6 +59,20 @@ require_relative '../models/address_book'
       puts "Sorry, that is not a valid input"
       main_menu
     end
+   end
+
+ # #10
+   def view_all_entries
+     # #14
+    @address_book.entries.each do |entry|
+    system "clear"
+    puts entry.to_s
+# #15
+      entry_submenu(entry)
+    end
+
+    system "clear"
+    puts "End of entries"
    end
 
    def entry_n_submenu
@@ -73,18 +87,7 @@ require_relative '../models/address_book'
      else
        puts "#{selection} is not a valid input"
        entry_n_submenu
- # #10
-   def view_all_entries
-     # #14
-    @address_book.entries.each do |entry|
-    system "clear"
-    puts entry.to_s
-# #15
-      entry_submenu(entry)
-    end
-
-    system "clear"
-    puts "End of entries"
+     end
    end
 
    def create_entry
@@ -117,12 +120,13 @@ require_relative '../models/address_book'
        search_submenu(match)
      else
        puts "No match found for #{name}"
+       main_menu
      end
    end
 
    def search_submenu(entry)
  # #12
-     puts "\nd - delete entry"
+     puts "d - delete entry"
      puts "e - edit this entry"
      puts "m - return to main menu"
  # #13
